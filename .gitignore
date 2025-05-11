@@ -1,0 +1,12 @@
+.DS_Store
+
+# Rubocop
+.rubocop-https---*
+
+# Travelling Ruby
+dist/
+
+# RSpec
+spec/examples.txt
+
+tmp/
