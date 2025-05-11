@@ -275,14 +275,14 @@ def build_and_push
   command = <<~BASH
     docker buildx build . \\
       -f #{dockerfile} \\
-      #{build_args.join("\n")}
-      --platform linux/amd64 \\
+      #{build_args.join("\n  ")} \\
+      --platform linux/amd64,linux/arm64 \\
       -t #{docker_repository}:latest \\
       -t #{target_image} \\
       --cache-from type=registry,ref=#{docker_repository} \\
       --cache-to type=registry,ref=#{docker_repository} \\
       --progress plain \\
-      --load
+      --push
   BASH
 
   puts bold "Building with command"
